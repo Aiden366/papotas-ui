@@ -1,0 +1,67 @@
+<div class="contenedor">
+  <h2>Gestión de Papitas 🍟</h2>
+
+  <form [formGroup]="formProductos" class="formulario">
+    <mat-form-field appearance="outline">
+      <mat-label style="color: black; border: 1px solid black;">Nombre</mat-label>
+      <input matInput formControlName="nombre" style="color: black;">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label style="color: black; border: 1px solid black;">Precio</mat-label>
+      <input matInput type="number" formControlName="precio" style="color: black;">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label style="color: black; border: 1px solid black;">Sabor</mat-label>
+      <input matInput formControlName="sabor" style="color: black;">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label style="color: black; border: 1px solid black;">Stock</mat-label>
+      <input matInput type="number" formControlName="stock" style="color: black;">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="guardarProducto()">
+      <mat-icon>add</mat-icon>
+      Agregar Producto
+    </button>
+  </form>
+
+  <table mat-table [dataSource]="productos" class="mat-elevation-z8 tabla">
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let p"> {{p.nombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="precio">
+      <th mat-header-cell *matHeaderCellDef> Precio ($) </th>
+      <td mat-cell *matCellDef="let p"> {{p.precio}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="sabor">
+      <th mat-header-cell *matHeaderCellDef> Sabor </th>
+      <td mat-cell *matCellDef="let p"> {{p.sabor}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="stock">
+      <th mat-header-cell *matHeaderCellDef> Stock </th>
+      <td mat-cell *matCellDef="let p"> {{p.stock}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let p">
+        <button mat-icon-button color="accent" (click)="editarProducto(p)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="openDialog('0ms', '0ms')">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

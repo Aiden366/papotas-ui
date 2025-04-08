@@ -1,0 +1,38 @@
+.contenedor {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: black; /* Cambiar color del texto del encabezado a negro */
+}
+
+.formulario {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+  align-items: end;
+}
+
+.mat-form-field label {
+  color: black; /* Cambiar color de los labels a negro */
+}
+
+button[mat-raised-button] {
+  height: 56px;
+}
+
+.tabla {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.mat-header-cell, .mat-cell {
+  padding: 12px;
+  font-size: 14px;
+}
